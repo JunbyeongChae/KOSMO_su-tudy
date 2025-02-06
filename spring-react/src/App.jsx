@@ -3,16 +3,29 @@ import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/auth/LoginPage";
 import NoticePage from "./components/notice/NoticePage";
 import { useEffect } from "react";
-import { boardListDB } from "./service/dbLogic";
+import { boardDeleteDB, boardInsertDB, boardListDB, boardUpdateDB } from "./service/dbLogic";
 
 const App = () => {
   useEffect(() => {
     const asyncDB = async () => {
+      /*
       const board ={
         "gubun" : null,
         "keyword" : null,
       }
-      await boardListDB(board);
+      */
+      //await boardListDB(board);
+      
+      const board = {
+        "b_title": "제목",
+        "b_content": "내용",
+        "email": "tomato@hotmail.com"
+      }
+      //await boardInsertDB(board);
+      //await boardUpdateDB(board);
+      await boardDeleteDB(1);
+
+
     }
     asyncDB();
   }, []);
