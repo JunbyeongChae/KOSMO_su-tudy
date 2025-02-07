@@ -11,5 +11,5 @@ import lombok.Data;
 @ConfigurationProperties
 @Data
 public class YAMLConfig {
-  private String uploadPath;
+    private String uploadPath;    
 }

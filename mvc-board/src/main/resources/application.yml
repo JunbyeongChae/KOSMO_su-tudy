@@ -1,3 +1,5 @@
+uploadPath:
+  D:\kosmo_2024\workspace-board\mvc-board\src\main\webapp\pds\
 server:
   port: 8000
   tomcat:    
@@ -10,11 +12,6 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-  thymeleaf:
-    prefix: classpath:templates/
-    suffix: .html
-    view-names: thymeleaf/*
-    cache: false
   datasource:
     hikari:
       jdbc-url: jdbc:oracle:thin:@127.0.0.1:1521/orcl11
@@ -32,5 +29,4 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
-      enabled: true
-uploadPath: /src/main/webapp/pds
+      enabled: true      
