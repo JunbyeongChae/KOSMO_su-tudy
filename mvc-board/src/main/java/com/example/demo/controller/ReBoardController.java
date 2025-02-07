@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.logic.ReBoardLogic;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 @RequestMapping("/api/*")
 public class ReBoardController {
+  @Autowired
+  private ReBoardLogic reBoardLogic = null;
   /************************************************************
     * 게시글 목록 조회 구현하기   - serch|select|where\GET
     * URL Mapping: /boardList
