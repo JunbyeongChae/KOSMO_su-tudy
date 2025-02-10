@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies - git 커밋에서 제외
+# dependencies
 /node_modules
 /.pnp
 .pnp.js

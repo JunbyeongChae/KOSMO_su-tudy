@@ -1,0 +1,2 @@
+car = com.example.demo.di1.SportsCar
+engine = com.example.demo.di1.Engine

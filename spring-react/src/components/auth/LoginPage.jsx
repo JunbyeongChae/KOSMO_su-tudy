@@ -1,16 +1,9 @@
-//rafce 단축명령어 사용
-import React from "react";
-import Header from "../include/Header";
-import Footer from "../include/Footer";
-
+import React from 'react'
+//rafce단축명령어
 const LoginPage = () => {
   return (
-    <>
-      <Header />
-      <div>LoginPage</div>
-      <Footer />
-    </>
-  );
-};
+    <div>LoginPage</div>
+  )
+}
 
-export default LoginPage;
+export default LoginPage
