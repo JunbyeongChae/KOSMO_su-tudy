@@ -1,9 +1,15 @@
-uploadPath:
-  D:\kosmo_2024\workspace-board\mvc-board\src\main\webapp\pds\
+uploadPath: D:/workspace-board/mvc-board/src/main/webapp/pds
 server:
   port: 8000
-  tomcat:    
-    additional-tld-skip-patterns: "*.jar"
+  tomcat:
+    additional-tld-skip-patterns: '*.jar'
+logging:
+  pattern:
+    console: |
+      ${LOGPATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) 
+      %blue(%-5level) 
+      %red([%thread]) 
+      %yellow(%logger{15}:%line)-%msg%n}
 spring:
   output:
     ansi:
@@ -29,4 +35,4 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
-      enabled: true      
+      enabled: true

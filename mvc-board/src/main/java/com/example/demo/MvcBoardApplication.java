@@ -11,5 +11,4 @@ public class MvcBoardApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MvcBoardApplication.class, args);
 	}
-
 }

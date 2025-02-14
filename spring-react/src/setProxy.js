@@ -2,7 +2,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware")
 
 module.exports = function(app){
     app.use(
-        '/api', //api가 붙은 요청에 대해서는 CORS이슈 피한다.
+        '/api', //api가 붙은 요청에 대해서는 CORS이슈 허락할께 - 통과시켜준다.
         createProxyMiddleware({
             target:'http://localhost:8000', //spring boot backend URL
             changeOrigin: true //요청의 Origin헤더를 대상 서버의 도메인으로 변경함. 교차출처 리소스 공유 문제 방지위해

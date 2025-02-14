@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo } from 'react'
-import ReactQuill from 'react-quill-new';
+import ReactQuill from 'react-quill';
 import { uploadImageDB } from '../../service/dbLogic';
+//import { ImageResize } from 'quill-image-resize-module-react';
+//Quill.register('modules/ImageResize', ImageResize);
 
 //QuillEditor는 b_content 관계가 있음. - 색상, 이미지 처리, 들여쓰기,,,, 위지웤
 //select로 조회한 결과에 b_content부분에 대한 값을 props로 받는다.- value
@@ -9,12 +11,15 @@ const ReQuillEditor = ({value, handleContent, quillRef}) => {
 
     const imageHandler = useCallback(() => {
         /* 이미지를 선택하고 열기를 눌렀을 때 생성되는 DOM입니다 */
+        /* 리액트에서는 html에서와 같이 form태그 전송이 불가함. */
         const formData = new FormData(); // 이미지를 url로 바꾸기위해 서버로 전달할 폼데이터 만들기
+        //이미지 버튼이 클릭되면 이미지를 서버로 전송하기 위해서 동적으로 type 이 file인 input태그를 생성함. 
         const input = document.createElement("input"); // input 태그를 동적으로 생성하기
+        //<input type='file' accept='image/png'
         input.setAttribute("type", "file");
         input.setAttribute("accept", "image/*"); // 이미지 파일만 선택가능하도록 제한
         input.setAttribute("name", "image");
-        input.click();
+        input.click(); //input file의 클릭이 발생하도록 강제함.
         /* 선택한 파일의 type이 file이다. */
         // 파일 선택창에서 이미지를 선택하면 실행될 콜백 함수 등록
         input.onchange = async () => {
@@ -22,10 +27,11 @@ const ReQuillEditor = ({value, handleContent, quillRef}) => {
                 const file = input.files[0];
                 if (!file) {
                     alert("파일이 선택되지 않았습니다.");
-                    return;
+                    return;//함수 탈출
                 }
-                const fileType = file.name.split('.').pop().toUpperCase();
-                console.log(fileType);
+                //man4.png
+                const fileType = file.name.split('.').pop().toUpperCase();//PNG
+                console.log(fileType);//PNG
                 // 파일 확장자 검증
                 if (!['JPG', 'PNG', 'JPEG'].includes(fileType)) {
                     alert("jpg, png, jpeg 형식만 지원합니다.");
@@ -95,9 +101,6 @@ const ReQuillEditor = ({value, handleContent, quillRef}) => {
                 image: imageHandler,
             },
         },
-        ImageResize: {
-            modules: ['Resize']
-        }
     }), [imageHandler])
     const formats = [
         //'font',

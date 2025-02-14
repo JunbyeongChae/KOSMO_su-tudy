@@ -14,6 +14,8 @@ const ReBoardHeader = ({board, b_no, page}) => {
     },[board])
     const boardDelete = async() => {
         await boardDeleteDB(b_no)
+        //삭제가 되면 목록 페이지로 간다.
+        navigate('/reboard')
     }
     const boardList = () => {
         navigate(`/reboard?page=${page}`)
@@ -32,10 +34,10 @@ const ReBoardHeader = ({board, b_no, page}) => {
                 </div>
                 {
                     <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                    <BButton style={{margin:'0px 10px 0px 10px'}} onClick={()=>{navigate(`/board/update/${b_no}`)}}>
+                    <BButton style={{margin:'0px 10px 0px 10px'}} onClick={()=>{navigate(`/reboard/update/${b_no}`)}}>
                         수정
                     </BButton>
-                    <BButton style={{margin:'0px 10px 0px 10px'}} onClick={()=>{boardDelete()}}>
+                    <BButton style={{margin:'0px 10px 0px 10px'}} onClick={boardDelete}>
                         삭제
                     </BButton>
                     <BButton style={{margin:'0px 10px 0px 10px'}} onClick={boardList}>
